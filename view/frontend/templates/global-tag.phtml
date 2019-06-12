@@ -3,7 +3,6 @@
 # @see: https://github.com/neddy236/Simple-Google-Tag-Manager-Magento-2
 ?>
 <?php $enabled = $block->getStoreConfig('skytech_gtag/options/enable')  ?>
-<?php echo $block->getCurrencyCode(); ?>
 <?php // outputs the global site tag if enabled ?>
 <?php if($enabled): ?>
    <?php echo $globalTag = $block->getStoreConfig('skytech_gtag/options/global_tag')  ?>

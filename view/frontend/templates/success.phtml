@@ -16,7 +16,7 @@
      <?php else: ?>
      'send_to': '<?= $accountId ?>',
      <?php endif; ?>
-      'value': <?= $block->getGrandTotal(); ?>,
+      'value': <?= number_format($block->getGrandTotal(), 2, '.', ''); ?>,
       'currency': '<?= $block->getCurrencyCode(); ?>',
       'transaction_id': '<?= $block->getOrderId(); ?>'
   });
