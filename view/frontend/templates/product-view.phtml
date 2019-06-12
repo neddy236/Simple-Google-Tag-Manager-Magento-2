@@ -1,0 +1,21 @@
+<?php
+# @Author: Vasilis Neris
+# @see: https://github.com/neddy236/Simple-Google-Tag-Manager-Magento-2
+?>
+<?php $enabled = $block->getStoreConfig('skytech_gtag/options/enable')  ?>
+
+<?php if($enabled): ?>
+<?php $accountId = $block->getStoreConfig('skytech_gtag/options/account_id') ?>
+<?php $product   = $block->getCurrentProduct();?>
+
+<script>
+  gtag('event', 'page_view', {
+    'send_to': '<?= $accountId ?>',
+    'dynx_itemid': '<?= $product->getSku(); ?>',
+    'ecomm_pagetype': 'product',
+    'ecomm_prodid': '<?= $product->getSku(); ?>'
+  });
+</script>
+<?php endif; ?>
+
+

@@ -1,0 +1,27 @@
+<?php
+# @Author: Vasilis Neris
+# @see: https://github.com/neddy236/Simple-Google-Tag-Manager-Magento-2
+?>
+<?php $enabled = $block->getStoreConfig('skytech_gtag/options/enable')  ?>
+
+
+<?php if($enabled): ?>
+<?php $accountId = $block->getStoreConfig('skytech_gtag/options/account_id') ?>
+<?php $group     = $block->getStoreConfig('skytech_gtag/options/transaction_group') ?>
+
+<script>
+  gtag('event', 'conversion', {
+     <?php if($group != ''): ?>
+     'send_to': '<?= $group ?>',
+     <?php else: ?>
+     'send_to': '<?= $accountId ?>',
+     <?php endif; ?>
+      'value': <?= $block->getGrandTotal(); ?>,
+      'currency': '<?= $block->getCurrencyCode(); ?>',
+      'transaction_id': '<?= $block->getOrderId(); ?>'
+  });
+</script>
+
+<?php endif; ?>
+
+
